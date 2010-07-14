@@ -1,3 +1,4 @@
+ 
 CSH Arcade Controls
 ==================
 
@@ -11,28 +12,28 @@ I've adapted it to add a ton of new buttons, new axis, new HID descriptor, new A
 Pin Wiring Diagram
 ------------------
 
-Function		Pin
-JOYSTICK_1_RIGHT_AXIS 	B0
-JOYSTICK_1_LEFT_AXIS	B1
-JOYSTICK_1_UP_AXIS	B2
-JOYSTICK_1_DOWN_AXIS	B3
-JOYSTICK_2_RIGHT_AXIS	C0
-JOYSTICK_2_LEFT_AXIS	C1
-JOYSTICK_2_UP_AXIS	C2
-JOYSTICK_2_DOWN_AXIS	C3
-BUTTON_0		F0
-BUTTON_1		F1
-BUTTON_2		F2
-BUTTON_3		F3
-BUTTON_4		F4
-BUTTON_5		F5
-BUTTON_6		F6
-BUTTON_7		F7
-BUTTON_8		A0
-BUTTON_9		A1
-BUTTON_10		A2
-BUTTON_11		A3
-BUTTON_12		A4
-BUTTON_13		A5
-BUTTON_14		A6
-BUTTON_15		A7
+    Function                   Pin
+    JOYSTICK 1 RIGHT AXIS      B0
+    JOYSTICK 1 LEFT AXIS       B1
+    JOYSTICK 1 UP AXIS         B2
+    JOYSTICK 1 DOWN AXIS       B3
+    JOYSTICK 2 RIGHT AXIS      C0
+    JOYSTICK 2 LEFT AXIS       C1
+    JOYSTICK 2 UP AXIS         C2
+    JOYSTICK 2 DOWN AXIS       C3
+    BUTTON 0                   F0
+    BUTTON 1                   F1
+    BUTTON 2                   F2
+    BUTTON 3                   F3
+    BUTTON 4                   F4
+    BUTTON 5                   F5
+    BUTTON 6                   F6
+    BUTTON 7                   F7
+    BUTTON 8                   A0
+    BUTTON 9                   A1
+    BUTTON 10                  A2
+    BUTTON 11                  A3
+    BUTTON 12                  A4
+    BUTTON 13                  A5
+    BUTTON 14                  A6
+    BUTTON 15                  A7
