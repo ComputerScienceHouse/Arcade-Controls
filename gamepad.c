@@ -1,6 +1,12 @@
-/* Keyboard example for Teensy USB Development Board
- * http://www.pjrc.com/teensy/usb_keyboard.html
- * Copyright (c) 2008 PJRC.COM, LLC
+/* A USB joystick emulator for CSH's arcade controls.
+ *
+ * Based on some open source code from grunskis for USB joystick stuff on 
+ * AVR/Teensy board, which was in turn based off PJRC's USB keyboard HID 
+ * device code for Teensy boards. I've adapted it to add a ton of new buttons,
+ * new axis, new HID descriptor, new AVR chip type to accomodate expanded pin
+ * count need, etc. 
+ *
+ * Copyright (c) 2010 Chris Lockfort <clockfort@csh.rit.edu>
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,10 +43,8 @@
 #define JOYSTICK_UP    (1 << 2)
 #define JOYSTICK_DOWN  (1 << 3)
 
-#define BUTTON_PINS   (BUTTON1 | BUTTON2 | BUTTON3)
-#define JOYSTICK_PINS (JOYSTICK_LEFT | JOYSTICK_RIGHT | JOYSTICK_UP | JOYSTICK_DOWN)
-
 int main(void) {
+  //Place to store button presses
   uint8_t f, a, x, y, x2, y2;
   uint8_t i;
 
@@ -48,10 +52,7 @@ int main(void) {
   CPU_PRESCALE(0);
 
   // enable pull-ups on button & joystick pins
-  PORTB = 0xFF; 
-  PORTA = 0xFF;
-  PORTF = 0xFF;
-  PORTC = 0xFF;
+  PORTA = PORTB = PORTC = PORTF = 0xFF; 
 
   //configure LED pin
   LED_CONFIG;
@@ -67,9 +68,8 @@ int main(void) {
   _delay_ms(1000);
 
   while (1) {
-    f = 0; // assume no buttons pressed
-    a = 0;
-    x = y = x2 = y2 = 128; // assume no joystick movement
+    f = a = 0; // assume no buttons pressed
+    x = y = x2 = y2 = 128; // joysticks in middle position
     
     if ((PINB & JOYSTICK_LEFT) == 0) {
       x = 0;
@@ -110,6 +110,7 @@ int main(void) {
 
     usb_gamepad_action(x, y, x2, y2, f, a);
 
+    //LED activity light (Lights up when buttons are down)
     if (x != 128 || y != 128 || x2 != 128 || y2 != 128 || f != 0 || a != 0) {
       LED_ON;
     } else {

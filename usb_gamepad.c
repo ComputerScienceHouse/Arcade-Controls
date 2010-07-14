@@ -1,6 +1,12 @@
-/* USB Keyboard Example for Teensy USB Development Board
- * http://www.pjrc.com/teensy/usb_keyboard.html
- * Copyright (c) 2009 PJRC.COM, LLC
+/* A USB joystick emulator for CSH's arcade controls.
+ *
+ * Based on some open source code from grunskis for USB joystick stuff on 
+ * AVR/Teensy board, which was in turn based off PJRC's USB keyboard HID 
+ * device code for Teensy boards. I've adapted it to add a ton of new buttons,
+ * new axis, new HID descriptor, new AVR chip type to accomodate expanded pin
+ * count need, etc. 
+ *
+ * Copyright (c) 2010 Chris Lockfort <clockfort@csh.rit.edu>
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +28,6 @@
  */
 
 #define USB_SERIAL_PRIVATE_INCLUDE
-
 #include "usb_gamepad.h"
 
 /**************************************************************************
